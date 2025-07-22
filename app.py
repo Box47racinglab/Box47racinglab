@@ -11,7 +11,7 @@ DATA_FILE = 'licencias.csv'
 def registro():
     if request.method == 'POST':
         nombre = request.form['nombre']
-        apodo= = request.form['apodo']
+        apodo = request.form['apodo']
         correo = request.form['correo']
         nacimiento = request.form['nacimiento']
         nivel = request.form['nivel']
@@ -19,7 +19,7 @@ def registro():
 
         # Guardar CSV
         df = pd.DataFrame([[nombre, correo, nacimiento, nivel, url_licencia]],
-                          columns=['Nombre', 'Correo', 'Nacimiento', 'Nivel', 'Licencia'])
+                          columns=['Nombre', 'apodo', 'Correo', 'Nacimiento', 'Nivel', 'Licencia'])
         if os.path.exists(DATA_FILE):
             df.to_csv(DATA_FILE, mode='a', index=False, header=False)
         else:
