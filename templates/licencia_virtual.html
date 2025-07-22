@@ -1,0 +1,22 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Licencia Virtual</title>
+    <style>
+        body { background: #111; color: white; font-family: Arial; text-align: center; }
+        .tarjeta { border: 2px solid red; padding: 20px; margin-top: 50px; display: inline-block; background: #222; }
+        img { width: 150px; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Licencia Oficial – Box47</h1>
+    <div class="tarjeta">
+        <p><strong>Nombre:</strong> {{ datos['Nombre'] }}</p>
+        <p><strong>Correo:</strong> {{ datos['Correo'] }}</p>
+        <p><strong>Fecha de nacimiento:</strong> {{ datos['Nacimiento'] }}</p>
+        <p><strong>Nivel:</strong> {{ datos['Nivel'] }}</p>
+        <img src="/licencias/{{ datos['Nombre'] }}.png" alt="QR de licencia">
+    </div>
+</body>
+</html>
