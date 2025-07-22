@@ -18,7 +18,7 @@ def registro():
         url_licencia = url_for('licencia_virtual', nombre=nombre, _external=True)
 
         # Guardar CSV
-        df = pd.DataFrame([[nombre, correo, nacimiento, nivel, url_licencia]],
+        df = pd.DataFrame([[nombre, apodo, correo, nacimiento, nivel, url_licencia]],
                           columns=['Nombre', 'apodo', 'Correo', 'Nacimiento', 'Nivel', 'Licencia'])
         if os.path.exists(DATA_FILE):
             df.to_csv(DATA_FILE, mode='a', index=False, header=False)
