@@ -11,6 +11,7 @@ DATA_FILE = 'licencias.csv'
 def registro():
     if request.method == 'POST':
         nombre = request.form['nombre']
+        apodo= = request.form['apodo']
         correo = request.form['correo']
         nacimiento = request.form['nacimiento']
         nivel = request.form['nivel']
