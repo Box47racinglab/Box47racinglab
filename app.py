@@ -10,6 +10,9 @@ def registro():
 def crear_licencia():
     datos = {
         'nombre': request.form['nombre'],
+        'segundo nombre': request.form['segundo nombre'],
+        'apellido': request.form['apellido'],
+        'segundo apellido': request.form['segundo apellido'],
         'apodo': request.form['apodo'],
         'correo': request.form['correo'],
         'nacimiento': request.form['nacimiento'],
