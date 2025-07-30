@@ -1,29 +1,50 @@
-
 <!DOCTYPE html>
+<html>
 <html>
 <head>
     <title>Registro de Piloto – Box47</title>
     <style>
-body { background: black; color: white; font-family: Daytona; text-align: center; }
-        form { margin-top: 50px; }
-        input, select { margin: 10px; padding: 10px; font-size: 16px; }
-        button { background: red; color: white; border: red; padding: 10px 20px; font-size: 18px; }
-
+        body {
+            background: black;
+            color: white;
+            font-family: Daytona, sans-serif;
+            text-align: center;
+        }
+        form {
+            margin-top: 50px;
+        }
+        input, select {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            background: red;
+            color: white;
+            border: red;
+            padding: 10px 20px;
+            font-size: 18px;
+        }
     </style>
 </head>
 <body>
     <h1>Panel de Piloto – Escudería Box47</h1>
-    <form method="post">
+    
+    <!-- Esta es la línea que modifica a dónde se envía el formulario -->
+    <form method="POST" action="/crear_licencia">
+
         <input name="nombre" placeholder="Nombre del piloto" required><br>
-        <input name="apodo"  type="apodo/nickname" placeholder="apodo" required><br> 
+        <input name="apodo" type="text" placeholder="apodo" required><br>
         <input name="correo" type="email" placeholder="Correo electrónico" required><br>
         <input name="nacimiento" type="date" required><br>
+
         <select name="nivel" required>
-            <option value="Membresia base">Nivel 1 - Membresia base</option>
+            <option value="Membresía base">Nivel 1 – Membresía base</option>
             <option value="Next Lap">Nivel 2 – Next Lap</option>
             <option value="Fast Soul">Nivel 3 – Fast Soul</option>
             <option value="Apex Core">Nivel 4 – Apex Core</option>
         </select><br>
+
         <button type="submit">Crear licencia virtual</button>
     </form>
 </body>
