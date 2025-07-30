@@ -1,23 +1,40 @@
-
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Licencia Virtual</title>
+    <title>Licencia Virtual – Box47</title>
     <style>
-        body { background: #111; color: white; font-family: Arial; text-align: center; }
-        .tarjeta { border: 2px solid red; padding: 20px; margin-top: 50px; display: inline-block; background: #222; }
-        img { width: 150px; margin-top: 20px; }
+        body {
+            background: black;
+            color: white;
+            font-family: Daytona, sans-serif;
+            text-align: center;
+            padding: 30px;
+        }
+        .contenedor {
+            border: 2px solid red;
+            padding: 20px;
+            display: inline-block;
+            border-radius: 10px;
+            margin-top: 50px;
+        }
+        h1 {
+            color: red;
+        }
+        p {
+            font-size: 18px;
+        }
     </style>
 </head>
 <body>
-    <h1>Licencia Oficial – Box47</h1>
-    <div class="tarjeta">
-        <p><strong>Nombre:</strong> {{ datos['Nombre'] }}</p>
-        <p><strong>Correo:</strong> {{ datos['Correo'] }}</p>
-        <p><strong>apodo:</strong> {{datos['apodo']}} </pp
-        <p><strong>Fecha de nacimiento:</strong> {{ datos['Nacimiento'] }}</p>
-        <p><strong>Nivel:</strong> {{ datos['Nivel'] }}</p>
-        <img src="/licencias/{{ datos['Nombre'] }}.png" alt="QR de licencia">
+    <div class="contenedor">
+        <h1>Licencia Virtual</h1>
+        <p><strong>Nombre:</strong> {{ licencia.nombre }}</p>
+        <p><strong>Apodo:</strong> {{ licencia.apodo }}</p>
+        <p><strong>Correo:</strong> {{ licencia.correo }}</p>
+        <p><strong>Nacimiento:</strong> {{ licencia.nacimiento }}</p>
+        <p><strong>Nivel:</strong> {{ licencia.nivel }}</p>
+        <br>
+        <p>Gracias por registrarte con <strong>Box47 Racing Lab</strong> 🏁</p>
     </div>
 </body>
 </html>
