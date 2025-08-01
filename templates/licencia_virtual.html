@@ -7,7 +7,6 @@
         body {
             background: black;
             color: white;
-            font-family: Daytona, sans-serif;
             font-family: "Daytona", sans-serif;
             text-align: center;
             padding: 30px;
@@ -33,24 +32,33 @@
         strong {
             color: #00ffcc;
         }
+
+        .qr {
+            margin-top: 20px;
+            border: 2px dashed #00ffcc;
+            padding: 10px;
+            background: white;
+        }
     </style>
 </head>
 <body>
     <div class="contenedor">
         <h1>Licencia Virtual</h1>
 
-        <p><strong>Nombre:</strong> {{ licencia.nombre }}</p>
-        <p><strong>Segundo Nombre:</strong> {{ licencia.segundo_nombre }}</p>
-        <p><strong>Apellido:</strong> {{ licencia.apellido }}</p>
-@@ -36,8 +46,10 @@ <h1>Licencia Virtual</h1>
-        <p><strong>Correo:</strong> {{ licencia.correo }}</p>
-        <p><strong>Nacimiento:</strong> {{ licencia.nacimiento }}</p>
-        <p><strong>Nivel:</strong> {{ licencia.nivel }}</p>
+        <p><strong>Nombre:</strong> {{ nombre }} {{ segundo_nombre }}</p>
+        <p><strong>Primer Apellido:</strong> {{ primer_apellido }}</p>
+        <p><strong>Segundo Apellido:</strong> {{ segundo_apellido }}</p>
+        <p><strong>Apodo:</strong> {{ apodo }}</p>
+        <p><strong>Correo:</strong> {{ correo }}</p>
+        <p><strong>Nacimiento:</strong> {{ nacimiento }}</p>
+        <p><strong>Nivel:</strong> {{ nivel }}</p>
 
-        <br><hr><br>
-        <p>Gracias por registrarte con <strong>Box47 Racing Lab</strong> 🏁🏎️</p>
+        <div class="qr">
+            <img src="data:image/png;base64,{{ qr_data }}" alt="Código QR">
+        </div>
 
-        <p>Gracias por registrarte con <strong>Box47 Racing Lab</strong> 🏁🚗</p>
+        <br><br>
+        <p>Gracias por registrarte con <strong>Box47 Racing Lab</strong> 🏁 🏎️</p>
     </div>
 </body>
 </html>
