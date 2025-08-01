@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
-<html lang="es">
 <head>
-    <meta charset="UTF-8">
     <title>Registro de Piloto – Box47</title>
     <style>
         body {
@@ -10,60 +8,54 @@
             color: white;
             font-family: Daytona, sans-serif;
             text-align: center;
-            margin: 0;
-            padding: 0;
-        }
-
-        h1 {
-            margin-top: 40px;
         }
 
         form {
             margin-top: 50px;
-            margin-top: 30px;
         }
 
         input, select {
             margin: 10px;
             padding: 10px;
             font-size: 16px;
-            border-radius: 5px;
-            border: none;
-            width: 250px;
         }
 
         button {
             background: red;
             color: white;
             border: red;
-            border: none;
             padding: 10px 20px;
             font-size: 18px;
-            border-radius: 5px;
-            cursor: pointer;
         }
 
         label {
             display: block;
             margin-top: 10px;
-        button:hover {
-            background: darkred;
         }
     </style>
 </head>
 <body>
 
     <h1>Registro de Piloto – Escudería Box47</h1>
+ 
 
     <!-- Esta es la línea que modifica a dónde se envía el formulario -->
     <form method="POST" action="/crear_licencia">
 
+        <input name="nombre" placeholder="Nombre del piloto" required><br>
+        <input name="segundo nombre" placeholder="segundo nombre del piloto" optional><br>
+        <input name="primer apellido" placeholder="primer apellido" required><br>
+        <input name="segundo apellido" placeholder="segundo apellido" optional><br>
+        <input name="apodo" type="text" placeholder="apodo" required><br>
+        <input name="correo" type="email" placeholder="Correo electrónico" required><br>
+        <input name="nacimiento" type="date" required><br>
         <label for="nombre">Nombre del piloto:</label>
         <input id="nombre" name="nombre" placeholder="Nombre del piloto" required><br>
 
         <label for="segundo_nombre">Segundo nombre del piloto:</label>
         <input id="segundo_nombre" name="segundo nombre" placeholder="Segundo nombre del piloto" optional><br>
 
+        <select name="nivel" required>
         <label for="primer_apellido">Primer apellido:</label>
         <input id="primer_apellido" name="primer apellido" placeholder="Primer apellido" required><br>
 
@@ -81,15 +73,6 @@
 
         <label for="nivel">Nivel:</label>
         <select id="nivel" name="nivel" required>
-        <input name="nombre" placeholder="Nombre del piloto" required><br>
-        <input name="segundo_nombre" placeholder="Segundo nombre del piloto"><br>
-        <input name="primer_apellido" placeholder="Primer apellido" required><br>
-        <input name="segundo_apellido" placeholder="Segundo apellido"><br>
-        <input name="apodo" placeholder="Apodo" required><br>
-        <input name="correo" type="email" placeholder="Correo electrónico" required><br>
-        <input name="nacimiento" type="date" required><br>
-
-        <select name="nivel" required>
             <option value="Membresía base">Nivel 1 – Membresía base</option>
             <option value="Next Lap">Nivel 2 – Next Lap</option>
             <option value="Fast Soul">Nivel 3 – Fast Soul</option>
