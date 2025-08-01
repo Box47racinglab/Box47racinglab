@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<html>
 <head>
     <title>Registro de Piloto – Box47</title>
     <style>
@@ -9,17 +10,14 @@
             font-family: Daytona, sans-serif;
             text-align: center;
         }
-
         form {
             margin-top: 50px;
         }
-
         input, select {
             margin: 10px;
             padding: 10px;
             font-size: 16px;
         }
-
         button {
             background: red;
             color: white;
@@ -27,19 +25,13 @@
             padding: 10px 20px;
             font-size: 18px;
         }
-
-        label {
-            display: block;
-            margin-top: 10px;
-        }
     </style>
 </head>
 <body>
-
     <h1>Registro de Piloto – Escudería Box47</h1>
- 
-
+    
     <!-- Esta es la línea que modifica a dónde se envía el formulario -->
+ 
     <form method="POST" action="/crear_licencia">
 
         <input name="nombre" placeholder="Nombre del piloto" required><br>
@@ -49,30 +41,8 @@
         <input name="apodo" type="text" placeholder="apodo" required><br>
         <input name="correo" type="email" placeholder="Correo electrónico" required><br>
         <input name="nacimiento" type="date" required><br>
-        <label for="nombre">Nombre del piloto:</label>
-        <input id="nombre" name="nombre" placeholder="Nombre del piloto" required><br>
-
-        <label for="segundo_nombre">Segundo nombre del piloto:</label>
-        <input id="segundo_nombre" name="segundo nombre" placeholder="Segundo nombre del piloto" optional><br>
 
         <select name="nivel" required>
-        <label for="primer_apellido">Primer apellido:</label>
-        <input id="primer_apellido" name="primer apellido" placeholder="Primer apellido" required><br>
-
-        <label for="segundo_apellido">Segundo apellido:</label>
-        <input id="segundo_apellido" name="segundo apellido" placeholder="Segundo apellido" optional><br>
-
-        <label for="apodo">Apodo:</label>
-        <input id="apodo" name="apodo" type="text" placeholder="Apodo" required><br>
-
-        <label for="correo">Correo electrónico:</label>
-        <input id="correo" name="correo" type="email" placeholder="Correo electrónico" required><br>
-
-        <label for="nacimiento">Fecha de nacimiento:</label>
-        <input id="nacimiento" name="nacimiento" type="date" required><br>
-
-        <label for="nivel">Nivel:</label>
-        <select id="nivel" name="nivel" required>
             <option value="Membresía base">Nivel 1 – Membresía base</option>
             <option value="Next Lap">Nivel 2 – Next Lap</option>
             <option value="Fast Soul">Nivel 3 – Fast Soul</option>
@@ -80,8 +50,6 @@
         </select><br>
 
         <button type="submit">Crear licencia virtual</button>
-
     </form>
-
 </body>
 </html>
