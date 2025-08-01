@@ -2,69 +2,40 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Registro de Piloto – Box47</title>
-    <style>
-        body {
-            background: black;
-            color: white;
-            font-family: Daytona, sans-serif;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-        }
-
-        h1 {
-            margin-top: 40px;
-        }
-
-        form {
-            margin-top: 30px;
-        }
-
-        input, select {
-            margin: 10px;
-            padding: 10px;
-            font-size: 16px;
-            border-radius: 5px;
-            border: none;
-            width: 250px;
-        }
-
-        button {
-            background: red;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 18px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background: darkred;
-        }
-    </style>
+    <title>Registro de Piloto</title>
 </head>
 <body>
-    <h1>Registro de Piloto – Escudería Box47</h1>
+    <h1>Registro de Piloto</h1>
+    <form action="/crear_licencia" method="POST">
+        <label for="nombre">Nombre:</label><br>
+        <input type="text" id="nombre" name="nombre" required><br><br>
 
-    <form method="POST" action="/crear_licencia">
-        <input name="nombre" placeholder="Nombre del piloto" required><br>
-        <input name="segundo_nombre" placeholder="Segundo nombre del piloto"><br>
-        <input name="primer_apellido" placeholder="Primer apellido" required><br>
-        <input name="segundo_apellido" placeholder="Segundo apellido"><br>
-        <input name="apodo" placeholder="Apodo" required><br>
-        <input name="correo" type="email" placeholder="Correo electrónico" required><br>
-        <input name="nacimiento" type="date" required><br>
+        <label for="segundo_nombre">Segundo nombre:</label><br>
+        <input type="text" id="segundo_nombre" name="segundo_nombre"><br><br>
 
-        <select name="nivel" required>
-            <option value="Membresía base">Nivel 1 – Membresía base</option>
-            <option value="Next Lap">Nivel 2 – Next Lap</option>
-            <option value="Fast Soul">Nivel 3 – Fast Soul</option>
-            <option value="Apex Core">Nivel 4 – Apex Core</option>
-        </select><br>
+        <label for="apellido">Apellido:</label><br>
+        <input type="text" id="apellido" name="apellido" required><br><br>
 
-        <button type="submit">Crear licencia virtual</button>
+        <label for="segundo_apellido">Segundo apellido:</label><br>
+        <input type="text" id="segundo_apellido" name="segundo_apellido"><br><br>
+
+        <label for="apodo">Apodo:</label><br>
+        <input type="text" id="apodo" name="apodo" required><br><br>
+
+        <label for="correo">Correo electrónico:</label><br>
+        <input type="email" id="correo" name="correo" required><br><br>
+
+        <label for="nacimiento">Fecha de nacimiento:</label><br>
+        <input type="date" id="nacimiento" name="nacimiento" required><br><br>
+
+        <label for="nivel">Nivel:</label><br>
+        <select id="nivel" name="nivel" required>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+        </select><br><br>
+
+        <button type="submit">Generar Licencia</button>
     </form>
 </body>
 </html>
