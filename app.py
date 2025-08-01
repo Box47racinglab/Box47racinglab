@@ -10,10 +10,10 @@ def index():
 def crear_licencia():
     try:
         # Recoger datos del formulario
-        nombre = request.form.get('nombre')
+        primer_nombre = request.form.get('nombre')
         segundo_nombre = request.form.get('segundo nombre')  # opcional
-        apellido_paterno = request.form.get('apellido_paterno')
-        apellido_materno = request.form.get('apellido_materno')
+        primer_apellido = request.form.get('apellido_paterno')
+        segundo_apellido = request.form.get('apellido_materno')
         apodo = request.form.get('apodo')
         correo = request.form.get('correo')
         fecha_nacimiento = request.form.get('fecha_nacimiento')
@@ -22,10 +22,10 @@ def crear_licencia():
         # Renderizar plantilla de licencia con los datos
         return render_template(
             'licencia.html',
-            nombre=nombre,
+            primer_nombre=nombre,
             segundo_nombre=segundo_nombre,
-            apellido_paterno=apellido_paterno,
-            apellido_materno=apellido_materno,
+            primer_apellido=apellido_paterno,
+            segundo_apellido=apellido_materno,
             apodo=apodo,
             correo=correo,
             fecha_nacimiento=fecha_nacimiento,
