@@ -1,89 +1,93 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>Registro de Piloto – Box47</title>
+    <meta charset="UTF-8">
+    <title>Registro Box 47</title>
     <style>
         body {
-            background: black;
+            background-color: black;
             color: white;
-            font-family: Daytona, sans-serif;
+            font-family: 'Arial', sans-serif;
             text-align: center;
+            padding: 20px;
         }
+
+        h1 {
+            color: red;
+        }
+
         form {
-            margin-top: 50px;
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            padding: 20px;
+            display: inline-block;
+            text-align: left;
+            box-shadow: 0px 0px 20px red;
         }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
         input, select {
-            margin: 10px;
-            padding: 10px;
-            font-size: 16px;
+            width: 100%;
+            padding: 8px;
+            border-radius: 5px;
+            border: none;
+            margin-top: 5px;
         }
-       \button {
-  background: linear-gradient(to right, red, darkred);
-  color: white;
-  border: none;
-  border-radius: 8px;
-  padding: 12px 25px;
-  font-size: 18px;
-  font-weight: bold;
-  cursor: pointer;
-  box-shadow: 0px 4px 10px rgba(255, 0, 0, 0.5);
-  transition: transform 0.2s ease;
-}
 
-button:hover {
-  transform: scale(1.05);
-}
+        button {
+            margin-top: 20px;
+            background: linear-gradient(to right, red, darkred);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 25px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0px 4px 10px rgba(255, 0, 0, 0.5);
+            transition: transform 0.2s ease;
+        }
 
+        button:hover {
+            transform: scale(1.05);
         }
     </style>
 </head>
 <body>
-    <h1>Registro de Piloto – Escudería Box47</h1>
-    
-    <!-- Esta es la línea que modifica a dónde se envía el formulario -->
- 
-    <form method="POST" action="/crear_licencia">
-        <div class="form-group">
-        <label for="nombre">:</label>
-        <input id="nombre" name="nombre" placeholder="Nombre del piloto" required><br>
-        </div>
-        
-        <div class="form-group">
-        <label for="segundo nombre">segundo nombre:</label>
-        <input id="segundo nombre" placeholder="segundo nombre del piloto" ><br>
-        </div>
-        
-        <div class="form-group">
-        <label for="primer apellido">primer apellido:</label>
-        <input id="primer apellido" placeholder="primer apellido" required><br>
-        </div>
-        
-        <div class="form-group">
-        <label for="segundo apellido">segundo apellido:</label>
-        <input id="segundo apellido" placeholder="segundo apellido"><br>
-        </div>
+    <h1>Registro de Piloto</h1>
+    <form action="/crear_licencia" method="post">
+        <label>Nombre:</label>
+        <input type="text" name="nombre" required>
 
-        <div class="form-group">
-        <label for="apodo">apodo:</label>
-        <input id="apodo" type="text" placeholder="apodo" required><br>
-        </div>
+        <label>Segundo nombre:</label>
+        <input type="text" name="segundo nombre">
 
-        <div class="form-group">
-        <label for="correo">correo:</label>
-        <input id="correo" type="email" placeholder="Correo electrónico" required><br>
-        </div>
+        <label>Apellido paterno:</label>
+        <input type="text" name="apellido_paterno" required>
 
-        <div class="form-group">
-        <label for="fecha de nacimiento">decha de nacimiento:</label>
-        <input id="fecha de nacimiento" type="date" required><br>
-        </div>
+        <label>Apellido materno:</label>
+        <input type="text" name="apellido_materno" required>
 
+        <label>Apodo:</label>
+        <input type="text" name="apodo" required>
+
+        <label>Correo electrónico:</label>
+        <input type="email" name="correo" required>
+
+        <label>Fecha de nacimiento:</label>
+        <input type="date" name="fecha_nacimiento" required>
+
+        <label>Nivel de piloto:</label>
         <select name="nivel" required>
-            <option value="Membresía base">Nivel 1 – Membresía base</option>
-            <option value="Next Lap">Nivel 2 – Next Lap</option>
-            <option value="Fast Soul">Nivel 3 – Fast Soul</option>
-            <option value="Apex Core">Nivel 4 – Apex Core</option>
-        </select><br>
+            <option value="Rookie">Rookie</option>
+            <option value="SemiPro">SemiPro</option>
+            <option value="Pro">Pro</option>
+        </select>
 
         <button type="submit">Crear licencia virtual</button>
     </form>
