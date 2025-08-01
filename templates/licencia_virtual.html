@@ -1,27 +1,56 @@
-<!DOCTYPE html>
-<html lang="es">
+!DOCTYPE html>
+<html>
 <head>
     <meta charset="UTF-8">
-    <title>Licencia de Piloto</title>
+    <title>Licencia Virtual – Box47</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-        }
-        .licencia {
-            border: 2px solid black;
-            padding: 20px;
-            width: 400px;
-            margin: 0 auto;
-        }
-        .qr {
+            background: black;
+            color: white;
+            font-family: Daytona, sans-serif;
+            font-family: "Daytona", sans-serif;
             text-align: center;
-            margin-top: 20px;
+            padding: 30px;
+        }
+
+        .contenedor {
+            border: 2px solid red;
+            padding: 20px;
+            display: inline-block;
+            border-radius: 10px;
+            margin-top: 50px;
+        }
+
+        h1 {
+            color: red;
+        }
+
+        p {
+            font-size: 18px;
+            margin: 8px 0;
+        }
+
+        strong {
+            color: #00ffcc;
         }
     </style>
 </head>
 <body>
-    <h1 style="text-align: center;">Licencia de Piloto</h1>
+    <div class="contenedor">
+        <h1>Licencia Virtual</h1>
 
-    <div class="licencia">
-        <p><strong>Nombre:</strong> {{ nombre }} {{ segundo_nombre }}</p>
-        <p><strong>Apellido:</strong> {{ apellido }} {{
+        <p><strong>Nombre:</strong> {{ licencia.nombre }}</p>
+        <p><strong>Segundo Nombre:</strong> {{ licencia.segundo_nombre }}</p>
+        <p><strong>Apellido:</strong> {{ licencia.apellido }}</p>
+@@ -36,8 +46,10 @@ <h1>Licencia Virtual</h1>
+        <p><strong>Correo:</strong> {{ licencia.correo }}</p>
+        <p><strong>Nacimiento:</strong> {{ licencia.nacimiento }}</p>
+        <p><strong>Nivel:</strong> {{ licencia.nivel }}</p>
+
+        <br><hr><br>
+        <p>Gracias por registrarte con <strong>Box47 Racing Lab</strong> 🏁🏎️</p>
+
+        <p>Gracias por registrarte con <strong>Box47 Racing Lab</strong> 🏁🚗</p>
+    </div>
+</body>
+</html>
