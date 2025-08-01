@@ -1,55 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Licencia Virtual – Box47</title>
+    <title>Licencia de Piloto</title>
     <style>
         body {
-            background: black;
-            color: white;
-            font-family: "Daytona", sans-serif;
-            text-align: center;
-            padding: 30px;
+            font-family: Arial, sans-serif;
         }
-
-        .contenedor {
-            border: 2px solid red;
+        .licencia {
+            border: 2px solid black;
             padding: 20px;
-            display: inline-block;
-            border-radius: 10px;
-            margin-top: 50px;
+            width: 400px;
+            margin: 0 auto;
         }
-
-        h1 {
-            color: red;
-        }
-
-        p {
-            font-size: 18px;
-            margin: 8px 0;
-        }
-
-        strong {
-            color: #00ffcc;
+        .qr {
+            text-align: center;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <div class="contenedor">
-        <h1>Licencia Virtual</h1>
+    <h1 style="text-align: center;">Licencia de Piloto</h1>
 
-        <p><strong>Nombre:</strong> {{ licencia.nombre }}</p>
-        <p><strong>Segundo Nombre:</strong> {{ licencia.segundo_nombre }}</p>
-        <p><strong>Apellido:</strong> {{ licencia.apellido }}</p>
-        <p><strong>Segundo Apellido:</strong> {{ licencia.segundo_apellido }}</p>
-        <p><strong>Apodo:</strong> {{ licencia.apodo }}</p>
-        <p><strong>Correo:</strong> {{ licencia.correo }}</p>
-        <p><strong>Nacimiento:</strong> {{ licencia.nacimiento }}</p>
-        <p><strong>Nivel:</strong> {{ licencia.nivel }}</p>
-
-        <br><hr><br>
-
-        <p>Gracias por registrarte con <strong>Box47 Racing Lab</strong> 🏁🚗</p>
-    </div>
-</body>
-</html>
+    <div class="licencia">
+        <p><strong>Nombre:</strong> {{ nombre }} {{ segundo_nombre }}</p>
+        <p><strong>Apellido:</strong> {{ apellido }} {{
