@@ -14,7 +14,7 @@ def registro():
         edad = request.form['edad']
         email = request.form['email']
 
-        return render_template('licencia.html',
+        return render_template('licencia_virtual.html',
                                nombre=nombre,
                                apellido=apellido,
                                edad=edad,
