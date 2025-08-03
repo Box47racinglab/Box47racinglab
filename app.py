@@ -1,41 +1,26 @@
-from flask import Flask, render_template, request
+\from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
 @app.route('/')
-def index():
+def home():
     return render_template('registro.html')
 
-@app.route('/crear_licencia', methods=['POST'])
-def crear_licencia():
+@app.route('/registro', methods=['POST'])
+def registro():
     try:
-        # Recoger datos del formulario
-        primer_nombre = request.form.get('primer_nombre')
-        segundo_nombre = request.form.get('segundo_nombre')  # opcional
-        primer_apellido = request.form.get('primer_apellido')
-        segundo_apellido = request.form.get('segundo_apellido')
-        apodo = request.form.get('apodo')
-        correo = request.form.get('correo')
-        fecha_nacimiento = request.form.get('fecha_nacimiento')
-        nivel = request.form.get('nivel')
+        nombre = request.form['nombre']
+        apellido = request.form['apellido']
+        edad = request.form['edad']
+        email = request.form['email']
 
-        # Renderizar plantilla de licencia con los datos
-        return render_template(
-            'licencia.html',
-            primer_nombre=primer_nombre,
-            segundo_nombre=segundo_nombre,
-            primer_apellido=primer_apellido,
-            segundo_apellido=segundo_apellido,
-            apodo=apodo,
-            correo=correo,
-            fecha_nacimiento=fecha_nacimiento,
-            nivel=nivel
-        )
-    
+        return render_template('licencia.html',
+                               nombre=nombre,
+                               apellido=apellido,
+                               edad=edad,
+                               email=email)
     except Exception as e:
-        # Mostrar el error en pantalla si algo falla
         return f"<h1>Error al procesar el formulario:</h1><pre>{e}</pre>"
 
-# Ejecutar localmente
 if __name__ == '__main__':
     app.run(debug=True)
