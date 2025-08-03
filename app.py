@@ -12,8 +12,8 @@ def crear_licencia():
         # Recoger datos del formulario
         primer_nombre = request.form.get('primer_nombre')
         segundo_nombre = request.form.get('segundo_nombre')  # opcional
-        primer_apellido = request.form.get('apellido_paterno')
-        segundo_apellido = request.form.get('apellido_materno')
+        primer_apellido = request.form.get('primer_apellido')
+        segundo_apellido = request.form.get('segundo_apellido')
         apodo = request.form.get('apodo')
         correo = request.form.get('correo')
         fecha_nacimiento = request.form.get('fecha_nacimiento')
@@ -24,8 +24,8 @@ def crear_licencia():
             'licencia.html',
             primer_nombre=primer_nombre,
             segundo_nombre=segundo_nombre,
-            primer_apellido=apellido_paterno,
-            segundo_apellido=apellido_materno,
+            primer_apellido=primer_apellido,
+            segundo_apellido=segundo_apellido,
             apodo=apodo,
             correo=correo,
             fecha_nacimiento=fecha_nacimiento,
