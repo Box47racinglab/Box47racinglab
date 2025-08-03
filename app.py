@@ -5,9 +5,10 @@ from io import BytesIO
 
 app = Flask(__name__)
 
-@app.route('/')
-def index():
+@app.route('/crear_licencia')
+def crear_licencia():
     return render_template('registro.html')
+
 
 @app.route('/registro', methods=['POST'])
 def registro():
