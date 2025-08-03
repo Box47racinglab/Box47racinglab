@@ -4,7 +4,11 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return render_template('registro.html')
+    return render_template('licencia_virtual.html',
+                      nombre=nombre,
+                      apellido=apellido,
+                      edad=edad,
+                      email=email)
 
 @app.route('/registro', methods=['POST'])
 def registro():
