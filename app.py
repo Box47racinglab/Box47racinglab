@@ -5,13 +5,14 @@ from io import BytesIO
 
 app = Flask(__name__)
 
-@app.route('/crear_licencia')
-def crear_licencia():
+# Ruta GET: muestra el formulario
+@app.route('/')
+def mostrar_formulario():
     return render_template('registro.html')
 
-
-@app.route('/registro', methods=['POST'])
-def registro():
+# Ruta POST: procesa el formulario y genera la licencia
+@app.route('/crear_licencia', methods=['POST'])
+def crear_licencia():
     try:
         nombre = request.form['nombre']
         segundo_nombre = request.form['segundo_nombre']
@@ -22,7 +23,7 @@ def registro():
         nacimiento = request.form['nacimiento']
         nivel = request.form['nivel']
 
-        # Generar código QR a partir del correo
+        # Generar código QR con el correo (puedes cambiar por otra info si prefieres)
         qr = qrcode.QRCode(version=1, box_size=10, border=4)
         qr.add_data(correo)
         qr.make(fit=True)
