@@ -12,14 +12,15 @@ app = Flask(__name__)
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USERNAME'] = 'tucorreo@gmail.com'  # CAMBIA esto
-app.config['MAIL_PASSWORD'] = 'tu_app_password'     # Usa app password de Gmail
+app.config['MAIL_USERNAME'] = 'tucorreo@gmail.com'  # 👈 cámbialo
+app.config['MAIL_PASSWORD'] = 'tu_app_password'     # 👈 cámbialo
 app.config['MAIL_DEFAULT_SENDER'] = ('Box 47 Racing Lab', 'tucorreo@gmail.com')
 
 mail = Mail(app)
 
+
 # -----------------------------
-# RUTA PRINCIPAL
+# RUTA PRINCIPAL (FORMULARIO)
 # -----------------------------
 @app.route("/")
 def home():
@@ -27,12 +28,12 @@ def home():
 
 
 # -----------------------------
-# RUTA PARA CREAR LICENCIA
+# RUTA CREAR LICENCIA
 # -----------------------------
 @app.route("/crear_licencia", methods=["POST"])
 def crear_licencia():
     try:
-        # Datos del formulario
+        # 1. Obtener datos del formulario
         nombre = request.form["nombre"]
         apellido_paterno = request.form["apellido_paterno"]
         apellido_materno = request.form["apellido_materno"]
@@ -43,18 +44,14 @@ def crear_licencia():
 
         apellidos = f"{apellido_paterno} {apellido_materno}"
 
-        # -----------------------------
-        # GENERAR QR
-        # -----------------------------
+        # 2. Generar QR
         datos_qr = f"{nombre} {apellidos} | {apodo} | {correo} | Nivel: {nivel}"
         qr = qrcode.make(datos_qr)
         buffer = io.BytesIO()
         qr.save(buffer, format="PNG")
         qr_base64 = base64.b64encode(buffer.getvalue()).decode("utf-8")
 
-        # -----------------------------
-        # GENERAR HTML DE LICENCIA
-        # -----------------------------
+        # 3. Renderizar HTML de licencia
         html = render_template(
             "licencia.html",
             nombre=nombre,
@@ -66,9 +63,7 @@ def crear_licencia():
             qr_base64=qr_base64
         )
 
-        # -----------------------------
-        # ENVIAR EMAIL
-        # -----------------------------
+        # 4. Enviar correo con la licencia en HTML
         msg = Message(
             subject="Tu Licencia Box 47 Racing Lab",
             recipients=[correo],
@@ -76,7 +71,7 @@ def crear_licencia():
         )
         mail.send(msg)
 
-        # Mostrar la licencia en el navegador
+        # 5. También mostrar la licencia en navegador
         return html
 
     except Exception as e:
