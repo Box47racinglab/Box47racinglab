@@ -1,33 +1,29 @@
-from flask import Flask, render_template, request
 from flask import Flask, render_template, request, redirect
 import qrcode
 import io
 import base64
-from io import BytesIO
+from flask import Flask, render_template, request, redirect, url_for
+from flask_mail import Mail, Message
 
 app = Flask(__name__)
 
-# Ruta GET: muestra el formulario
-@app.route('/')
-def mostrar_formulario():
-    return render_template('registro.html')
 @app.route("/")
 def home():
     return render_template("registro.html")
+# Configura tu correo (ejemplo Gmail, pero puedes usar otro SMTP)
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+app.config['MAIL_PORT'] = 587
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USERNAME'] = 'tucorreo@gmail.com'
+app.config['MAIL_PASSWORD'] = 'tu_contraseña_o_app_password'  # usa app password de Gmail
+app.config['MAIL_DEFAULT_SENDER'] = ('Box 47 Racing Lab', 'tucorreo@gmail.com')
 
-# Ruta POST: procesa el formulario y genera la licencia
-@app.route('/crear_licencia', methods=['POST'])
 @app.route("/crear_licencia", methods=["POST"])
+mail = Mail(app)
+
+@app.route('/crear_licencia', methods=['POST'])
 def crear_licencia():
     try:
-        nombre = request.form['nombre']
-        segundo_nombre = request.form['segundo_nombre']
-        primer_apellido = request.form['primer_apellido']
-        segundo_apellido = request.form['segundo_apellido']
-        apodo = request.form['apodo']
-        correo = request.form['correo']
-        nacimiento = request.form['nacimiento']
-        nivel = request.form['nivel']
         # Obtener datos del formulario
         nombre = request.form["nombre"]
         apellido_paterno = request.form["apellido_paterno"]
@@ -36,12 +32,13 @@ def crear_licencia():
         correo = request.form["correo"]
         fecha_nacimiento = request.form["fecha_nacimiento"]
         nivel = request.form["nivel"]
+    nombre = request.form['nombre']
+    apellidos = request.form['apellidos']
+    correo = request.form['correo']
+    apodo = request.form['apodo']
+    nivel = request.form['nivel']
+    fecha_nacimiento = request.form['fecha_nacimiento']
 
-        # Generar código QR con el correo (puedes cambiar por otra info si prefieres)
-        qr = qrcode.QRCode(version=1, box_size=10, border=4)
-        qr.add_data(correo)
-        qr.make(fit=True)
-        img = qr.make_image(fill='black', back_color='white')
         # Crear texto para el QR
         datos_qr = f"{nombre} {apellido_paterno} {apellido_materno} | {apodo} | {correo} | Nivel: {nivel}"
         
@@ -50,22 +47,18 @@ def crear_licencia():
         buffer = io.BytesIO()
         qr.save(buffer, format="PNG")
         qr_base64 = base64.b64encode(buffer.getvalue()).decode("utf-8")
+    # Generar la licencia en HTML (puedes incluir QR aquí)
+    html = render_template(
+        "licencia.html",
+        nombre=nombre,
+        apellidos=apellidos,
+        apodo=apodo,
+        nivel=nivel,
+        fecha_nacimiento=fecha_nacimiento,
+        correo=correo,
+        qr_base64=None,   # si ya generas QR, pásalo aquí
+    )
 
-        # Convertir la imagen a base64
-        buffer = BytesIO()
-        img.save(buffer, format="PNG")
-        qr_data = base64.b64encode(buffer.getvalue()).decode()
-
-        return render_template('licencia.html',
-                               nombre=nombre,
-                               segundo_nombre=segundo_nombre,
-                               primer_apellido=primer_apellido,
-                               segundo_apellido=segundo_apellido,
-                               apodo=apodo,
-                               correo=correo,
-                               nacimiento=nacimiento,
-                               nivel=nivel,
-                               qr_data=qr_data)
         # Renderizar la licencia con datos y el QR
         return render_template(
             "licencia_virtual.html",
@@ -80,9 +73,15 @@ def crear_licencia():
         )
     
     except Exception as e:
-        return f"<h1>Error al procesar el formulario:</h1><pre>{e}</pre>"
         return f"<h1>Error al procesar el formulario:</h1><pre>{str(e)}</pre>", 400
+    # Enviar email
+    msg = Message(
+        subject="Tu Licencia Box 47 Racing Lab",
+        recipients=[correo],
+        html=html
+    )
+    mail.send(msg)
 
-if __name__ == '__main__':
 if __name__ == "__main__":
     app.run(debug=True)
+    return html  # también se muestra en el navegador
