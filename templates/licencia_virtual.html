@@ -5,89 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Licencia · Box 47</title>
   <style>
-    :root {
-      --bg:#000;
-      --card:#111;
-      --text:#fff;
-      --accent:#e10600; /* rojo estilo F1 */
-      --muted:#b3b3b3;
-    }
+    :root{--bg:#000;--card:#111;--text:#fff;--accent:#e10600;--muted:#b3b3b3}
     *{box-sizing:border-box}
-    body{
-      margin:0;
-      background:var(--bg);
-      color:var(--text);
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-      display:flex; align-items:center; justify-content:center;
-      min-height:100vh; padding:24px;
-    }
-    .card{
-      width:min(960px,100%);
-      background:linear-gradient(180deg,#0a0a0a, #111);
-      border:1px solid #1f1f1f;
-      border-radius:16px;
-      box-shadow:0 0 28px rgba(225,6,0,.25);
-      overflow:hidden;
-    }
-    .header{
-      display:flex; align-items:center; justify-content:space-between;
-      padding:20px 24px;
-      border-bottom:1px solid #1f1f1f;
-      background:linear-gradient(90deg,#170000, transparent);
-    }
-    .brand{
-      display:flex; align-items:center; gap:12px;
-      font-weight:800; letter-spacing:.5px;
-      text-transform:uppercase;
-    }
-    .brand .dot{width:10px; height:10px; border-radius:50%; background:var(--accent); box-shadow:0 0 12px var(--accent);}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:24px}
+    .card{width:min(960px,100%);background:linear-gradient(180deg,#0a0a0a,#111);border:1px solid #1f1f1f;border-radius:16px;box-shadow:0 0 28px rgba(225,6,0,.25);overflow:hidden}
+    .header{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;border-bottom:1px solid #1f1f1f;background:linear-gradient(90deg,#170000,transparent)}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.5px;text-transform:uppercase}
+    .brand .dot{width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--accent)}
     .header small{color:var(--muted)}
-    .content{
-      display:grid; gap:24px;
-      grid-template-columns: 1.25fr .75fr;
-      padding:24px;
-    }
-    .left{display:grid; gap:18px}
-    .badge{
-      display:inline-block;
-      padding:6px 10px; border:1px solid #2b2b2b; border-radius:999px;
-      font-size:12px; color:#ddd; background:#141414;
-    }
-    .name{
-      font-size:28px; font-weight:800; line-height:1.1;
-    }
-    .grid{
-      display:grid; gap:12px;
-      grid-template-columns: repeat(2, minmax(0,1fr));
-    }
-    .field{
-      background:#141414; border:1px solid #1f1f1f; border-radius:12px;
-      padding:12px 14px;
-    }
-    .label{font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); margin-bottom:6px}
+    .content{display:grid;gap:24px;grid-template-columns:1.25fr .75fr;padding:24px}
+    .left{display:grid;gap:18px}
+    .badge{display:inline-block;padding:6px 10px;border:1px solid #2b2b2b;border-radius:999px;font-size:12px;color:#ddd;background:#141414}
+    .name{font-size:28px;font-weight:800;line-height:1.1}
+    .grid{display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}
+    .field{background:#141414;border:1px solid #1f1f1f;border-radius:12px;padding:12px 14px}
+    .label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:6px}
     .value{font-size:15px}
-    .qr{
-      display:flex; align-items:center; justify-content:center;
-      background:#0f0f0f; border-left:1px solid #1f1f1f;
-      padding:16px;
-    }
-    .qr img{width:220px; height:220px; image-rendering:pixelated; border-radius:12px}
-    .footer{
-      display:flex; gap:12px; justify-content:flex-end; align-items:center;
-      padding:16px 24px; border-top:1px solid #1f1f1f; background:#0c0c0c;
-    }
-    .btn{
-      appearance:none; border:1px solid #2a2a2a; background:#141414; color:#fff;
-      padding:10px 14px; border-radius:10px; cursor:pointer; font-weight:600;
-    }
-    .btn-accent{
-      border-color:transparent; background:linear-gradient(90deg, var(--accent), #8b0000);
-      box-shadow:0 0 16px rgba(225,6,0,.35);
-    }
-    @media (max-width: 880px){
-      .content{grid-template-columns:1fr}
-      .qr{border-left:none; border-top:1px solid #1f1f1f}
-    }
+    .qr{display:flex;align-items:center;justify-content:center;background:#0f0f0f;border-left:1px solid #1f1f1f;padding:16px}
+    .qr img{width:220px;height:220px;image-rendering:pixelated;border-radius:12px}
+    .footer{display:flex;gap:12px;justify-content:flex-end;align-items:center;padding:16px 24px;border-top:1px solid #1f1f1f;background:#0c0c0c}
+    .btn{appearance:none;border:1px solid #2a2a2a;background:#141414;color:#fff;padding:10px 14px;border-radius:10px;cursor:pointer;font-weight:600}
+    .btn-accent{border-color:transparent;background:linear-gradient(90deg,var(--accent),#8b0000);box-shadow:0 0 16px rgba(225,6,0,.35)}
+    @media (max-width:880px){.content{grid-template-columns:1fr}.qr{border-left:none;border-top:1px solid #1f1f1f}}
   </style>
 </head>
 <body>
@@ -97,21 +36,19 @@
         <span class="dot" aria-hidden="true"></span>
         <span>Box 47 · Racing Lab</span>
       </div>
-      <small>
-        ID:
-        <strong>
-          {{ licencia_id or codigo or id_licencia or '—' }}
-        </strong>
-      </small>
+      <small>ID: <strong>{{ licencia_id or codigo or id_licencia or '—' }}</strong></small>
     </header>
 
     <section class="content">
-      <!-- Datos -->
       <div class="left">
         <span class="badge">Licencia de Piloto</span>
 
+        <!-- Nombre completo: usa 'apellidos' si viene; si no, arma con apellido_paterno/materno -->
         <div class="name">
-          {{ (nombre|default('')) ~ (' ' ~ apellidos if apellidos else '') }}
+          {% set _aps = (apellido_paterno if apellido_paterno is defined else '') ~
+                        (' ' ~ apellido_materno if apellido_materno is defined and apellido_materno else '') %}
+          {% set _apellidos = apellidos if apellidos is defined and apellidos else _aps.strip() %}
+          {{ (nombre|default('')) ~ (' ' ~ _apellidos if _apellidos else '') }}
         </div>
 
         <div class="grid">
@@ -142,10 +79,9 @@
         </div>
       </div>
 
-      <!-- QR -->
       <aside class="qr" aria-label="Código QR de verificación">
         {% if qr_base64 %}
-          <img src="data:image/png;base64,{{ qr_base64 }}" alt="QR de la licencia"/>
+          <img src="data:image/png;base64,{{ qr_base64 }}" alt="QR de la licencia">
         {% else %}
           <div style="color:#aaa; text-align:center">
             <div class="label" style="margin-bottom:6px">QR no disponible</div>
