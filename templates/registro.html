@@ -23,7 +23,6 @@
             display: inline-block;
             text-align: left;
             box-shadow: 0px 0px 20px red;
-            width: 320px;
         }
 
         label {
@@ -52,7 +51,6 @@
             cursor: pointer;
             box-shadow: 0px 4px 10px rgba(255, 0, 0, 0.5);
             transition: transform 0.2s ease;
-            width: 100%;
         }
 
         button:hover {
@@ -62,10 +60,13 @@
 </head>
 <body>
     <h1>Registro de Piloto</h1>
-
     <form action="/crear_licencia" method="post">
         <label>Nombre:</label>
         <input type="text" name="nombre" required>
+
+        <label>Segundo nombre:</label>
+        <input type="text" name="segundo nombre">
+        <input type="text" name="segundo_nombre">
 
         <label>Apellido paterno:</label>
         <input type="text" name="apellido_paterno" required>
@@ -74,7 +75,7 @@
         <input type="text" name="apellido_materno" required>
 
         <label>Apodo:</label>
-        <input type="text" name="apodo">
+        <input type="text" name="apodo" required>
 
         <label>Correo electrónico:</label>
         <input type="email" name="correo" required>
