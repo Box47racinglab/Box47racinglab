@@ -23,6 +23,7 @@
             display: inline-block;
             text-align: left;
             box-shadow: 0px 0px 20px red;
+            width: 320px;
         }
 
         label {
@@ -51,6 +52,7 @@
             cursor: pointer;
             box-shadow: 0px 4px 10px rgba(255, 0, 0, 0.5);
             transition: transform 0.2s ease;
+            width: 100%;
         }
 
         button:hover {
@@ -60,30 +62,31 @@
 </head>
 <body>
     <h1>Registro de Piloto</h1>
-    <form action="/crear_licencia" method="post">
-        <label>Nombre:</label>
-        <input type="text" name="nombre" required>
 
-        <label>Segundo nombre:</label>
-        <input type="text" name="segundo nombre">
+    <form action="/crear_licencia" method="POST">
+        <label for="nombre">Nombre:</label>
+        <input id="nombre" type="text" name="nombre" required>
 
-        <label>Apellido paterno:</label>
-        <input type="text" name="apellido_paterno" required>
+        <label for="segundo_nombre">Segundo nombre (opcional):</label>
+        <input id="segundo_nombre" type="text" name="segundo_nombre">
 
-        <label>Apellido materno:</label>
-        <input type="text" name="apellido_materno" required>
+        <label for="apellido_paterno">Apellido paterno:</label>
+        <input id="apellido_paterno" type="text" name="apellido_paterno" required>
 
-        <label>Apodo:</label>
-        <input type="text" name="apodo" required>
+        <label for="apellido_materno">Apellido materno:</label>
+        <input id="apellido_materno" type="text" name="apellido_materno" required>
 
-        <label>Correo electrónico:</label>
-        <input type="email" name="correo" required>
+        <label for="apodo">Apodo (opcional):</label>
+        <input id="apodo" type="text" name="apodo">
 
-        <label>Fecha de nacimiento:</label>
-        <input type="date" name="fecha_nacimiento" required>
+        <label for="correo">Correo electrónico:</label>
+        <input id="correo" type="email" name="correo" required>
 
-        <label>Nivel de piloto:</label>
-        <select name="nivel" required>
+        <label for="fecha_nacimiento">Fecha de nacimiento:</label>
+        <input id="fecha_nacimiento" type="date" name="fecha_nacimiento" required>
+
+        <label for="nivel">Nivel de piloto:</label>
+        <select id="nivel" name="nivel" required>
             <option value="Rookie">Rookie</option>
             <option value="SemiPro">SemiPro</option>
             <option value="Pro">Pro</option>
