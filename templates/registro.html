@@ -4,94 +4,36 @@
     <meta charset="UTF-8">
     <title>Registro Box 47</title>
     <style>
-        body {
-            background-color: black;
-            color: white;
-            font-family: 'Arial', sans-serif;
-            text-align: center;
-            padding: 20px;
-        }
-
-        h1 {
-            color: red;
-        }
-
-        form {
-            background-color: #1a1a1a;
-            border-radius: 10px;
-            padding: 20px;
-            display: inline-block;
-            text-align: left;
-            box-shadow: 0px 0px 20px red;
-            width: 320px;
-        }
-
-        label {
-            display: block;
-            margin-top: 10px;
-            font-weight: bold;
-        }
-
-        input, select {
-            width: 100%;
-            padding: 8px;
-            border-radius: 5px;
-            border: none;
-            margin-top: 5px;
-        }
-
-        button {
-            margin-top: 20px;
-            background: linear-gradient(to right, red, darkred);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            padding: 12px 25px;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            box-shadow: 0px 4px 10px rgba(255, 0, 0, 0.5);
-            transition: transform 0.2s ease;
-            width: 100%;
-        }
-
-        button:hover {
-            transform: scale(1.05);
-        }
+        body { background-color: black; color: white; font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+        h1 { color: red; }
+        form { background-color: #1a1a1a; border-radius: 10px; padding: 20px; display: inline-block; text-align: left; box-shadow: 0px 0px 20px red; width: 320px; }
+        label { display: block; margin-top: 10px; font-weight: bold; }
+        input, select { width: 100%; padding: 8px; border-radius: 5px; border: none; margin-top: 5px; }
+        button { margin-top: 20px; background: linear-gradient(to right, red, darkred); color: white; border: none; border-radius: 8px; padding: 12px 25px; font-size: 18px; font-weight: bold; cursor: pointer; box-shadow: 0px 4px 10px rgba(255,0,0,0.5); width: 100%; }
+        button:hover { transform: scale(1.05); }
     </style>
 </head>
 <body>
     <h1>Registro de Piloto</h1>
-
-    <form action="/crear_licencia" method="POST">
-        <label for="nombre">Nombre:</label>
-        <input id="nombre" type="text" name="nombre" required>
-
-        <label for="segundo_nombre">Segundo nombre (opcional):</label>
-        <input id="segundo_nombre" type="text" name="segundo_nombre">
-
-        <label for="apellido_paterno">Apellido paterno:</label>
-        <input id="apellido_paterno" type="text" name="apellido_paterno" required>
-
-        <label for="apellido_materno">Apellido materno:</label>
-        <input id="apellido_materno" type="text" name="apellido_materno" required>
-
-        <label for="apodo">Apodo (opcional):</label>
-        <input id="apodo" type="text" name="apodo">
-
-        <label for="correo">Correo electrónico:</label>
-        <input id="correo" type="email" name="correo" required>
-
-        <label for="fecha_nacimiento">Fecha de nacimiento:</label>
-        <input id="fecha_nacimiento" type="date" name="fecha_nacimiento" required>
-
-        <label for="nivel">Nivel de piloto:</label>
-        <select id="nivel" name="nivel" required>
+    <form action="/crear_licencia" method="post">
+        <label>Nombre:</label>
+        <input type="text" name="nombre" required>
+        <label>Apellido paterno:</label>
+        <input type="text" name="apellido_paterno" required>
+        <label>Apellido materno:</label>
+        <input type="text" name="apellido_materno" required>
+        <label>Apodo:</label>
+        <input type="text" name="apodo">
+        <label>Correo electrónico:</label>
+        <input type="email" name="correo" required>
+        <label>Fecha de nacimiento:</label>
+        <input type="date" name="fecha_nacimiento" required>
+        <label>Nivel de piloto:</label>
+        <select name="nivel" required>
             <option value="Rookie">Rookie</option>
             <option value="SemiPro">SemiPro</option>
             <option value="Pro">Pro</option>
         </select>
-
         <button type="submit">Crear licencia virtual</button>
     </form>
 </body>
